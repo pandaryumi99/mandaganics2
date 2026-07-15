@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandaganics - All Natural (Organic and Healthy Foods)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: {
+                            50: '#f4f7f5',
+                            100: '#e6ede8',
+                            200: '#cfe0d4',
+                            500: '#7fa98c',
+                            600: '#638c70',
+                            700: '#4e6e58',
+                            800: '#3f5947',
+                        },
+                        accent: {
+                            orange: '#f97316',
+                            orangeHover: '#ea580c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfdfc;
+        }
+    </style>
+</head>
+<body class="text-slate-800 flex flex-col min-span-screen">
+
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-sage-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand Name (Diperbaiki dengan tag anchor) -->
+                <a href="#beranda" class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-200">
+                    <div class="w-12 h-12 rounded-full bg-sage-500 flex items-center justify-center text-white text-xl font-bold shadow-md shadow-sage-200">
+                        <i class="fa-solid fa-leaf text-white animate-pulse"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-extrabold text-sage-800 tracking-tight leading-none">Mandaganics</span>
+                        <span class="text-xs font-semibold text-accent-orange uppercase tracking-wider">All Natural & Healthy</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#beranda" class="text-sage-800 hover:text-accent-orange font-medium transition duration-200">Beranda</a>
+                    <a href="#katalog" class="text-sage-800 hover:text-accent-orange font-medium transition duration-200">Katalog Produk</a>
+                    <a href="#tentang" class="text-sage-800 hover:text-accent-orange font-medium transition duration-200">Tentang Kami</a>
+                    <a href="#testimoni" class="text-sage-800 hover:text-accent-orange font-medium transition duration-200">Testimoni</a>
+                </nav>
+
+                <!-- Search & Cart Buttons -->
+                <div class="flex items-center gap-4">
+                    <div class="relative hidden sm:block">
+                        <input id="nav-search" type="text" placeholder="Cari produk sehat..." 
+                            class="pl-9 pr-4 py-2 w-48 focus:w-64 transition-all duration-300 rounded-full border border-sage-200 bg-sage-50 text-sm focus:outline-none focus:ring-2 focus:ring-sage-500 focus:bg-white"
+                            oninput="syncAndSearch(this.value)">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-sage-500 text-xs"></i>
+                    </div>
+
+                    <button onclick="toggleCartModal()" class="relative p-2.5 bg-sage-100 hover:bg-sage-200 text-sage-800 rounded-full transition duration-300">
+                        <i class="fa-solid fa-cart-shopping text-lg"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-accent-orange text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-white scale-0 transition-all duration-300">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section id="beranda" class="relative min-h-[500px] flex items-center overflow-hidden py-16 sm:py-24">
+        <!-- Background Farm Image with img tag for better reliability -->
+        <div class="absolute inset-0 z-0">
+            <img src="trees-2900064_1280.jpg" alt="Pemandangan Peternakan Alami" class="w-full h-full object-cover">
+            <!-- Overlay untuk meningkatkan kontras teks -->
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-transparent"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 bg-sage-100/90 border border-sage-200 text-sage-800 px-4 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm">
+                    <i class="fa-solid fa-circle-check text-accent-orange"></i> 100% Produk Organik & Terbaik Pilihan
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+                    Nutrisi Terbaik untuk <br class="hidden sm:inline">
+                    <span class="text-accent-orange">Keluarga Sehat Anda</span>
+                </h1>
+                <p class="text-sage-50 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 drop-shadow-md font-medium">
+                    Sediakan bahan makanan bernutrisi tinggi, bebas pengawet kimia, gluten-free, dan super-food alami demi masa depan buah hati dan keluarga tercinta.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#katalog" class="px-8 py-4 bg-accent-orange hover:bg-accent-orangeHover text-white font-semibold rounded-xl shadow-lg hover:-translate-y-0.5 transition duration-200 text-center">
+                        <i class="fa-solid fa-basket-shopping mr-2"></i> Belanja Sekarang
+                    </a>
+                    <a href="#tentang" class="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-xl hover:bg-white/20 transition duration-200 text-center">
+                        Pelajari Selengkapnya
+                    </a>
+                </div>
+            </div>
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-sage-500 to-accent-orange rounded-3xl rotate-6 opacity-20 animate-pulse"></div>
+                    <div class="absolute inset-2 bg-white rounded-3xl shadow-xl flex items-center justify-center p-4">
+                        <img id="hero-img" src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600" 
+                             alt="Healthy organic products" class="w-full h-full object-cover rounded-2xl" onerror="this.src='https://placehold.co/600x600/7fa98c/ffffff?text=Mandaganics'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="katalog" class="py-16 bg-white flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-sage-800 sm:text-4xl">Etalase Produk Kami</h2>
+                <div class="h-1 w-16 bg-accent-orange mx-auto my-4 rounded-full"></div>
+                <p class="text-slate-600">Temukan aneka pilihan makanan sehat dan organik terbaik dari brand-brand terpercaya untuk menunjang gaya hidup sehat Anda.</p>
+            </div>
+
+            <!-- Search, Filter & Controls Bar -->
+            <div class="bg-sage-50 p-6 rounded-2xl border border-sage-100 mb-8 shadow-sm space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+                    <!-- Text Search -->
+                    <div class="md:col-span-6 relative">
+                        <label class="block text-xs font-semibold text-sage-800 mb-1">Cari Nama Produk</label>
+                        <input id="catalog-search" type="text" placeholder="Ketik kata kunci (misal: Broth, Propolis, Fillet...)" 
+                            class="w-full pl-10 pr-4 py-3 rounded-xl border border-sage-200 focus:outline-none focus:ring-2 focus:ring-sage-500 focus:border-transparent bg-white text-sm"
+                            oninput="syncAndSearch(this.value)">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 bottom-3.5 text-sage-400"></i>
+                    </div>
+
+                    <!-- Category Dropdown Filter -->
+                    <div class="md:col-span-6">
+                        <label class="block text-xs font-semibold text-sage-800 mb-1">Pilih Kategori / Brand</label>
+                        <select id="brand-filter" onchange="filterProducts()" 
+                            class="w-full px-4 py-3 rounded-xl border border-sage-200 focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white text-sm">
+                            <option value="all">Semua Kategori (8 Brand Utama)</option>
+                            <option value="Brothmama">Brothmama</option>
+                            <option value="Efi Propolis">Efi Propolis</option>
+                            <option value="Pure Organik">Pure Organik</option>
+                            <option value="Nima Bali">Nima Bali</option>
+                            <option value="Nucifera">Nucifera</option>
+                            <option value="Gut Well Soon">Gut Well Soon</option>
+                            <option value="Bio TH">Bio TH</option>
+                            <option value="Healti Ciken">Healti Ciken</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Fast Filter Badges -->
+                <div class="flex flex-wrap gap-2 pt-2 border-t border-sage-200/50">
+                    <span class="text-xs font-medium text-slate-500 flex items-center">Saran Pencarian:</span>
+                    <button onclick="quickSearch('Broth')" class="text-xs bg-white hover:bg-sage-100 text-sage-700 px-3 py-1 rounded-full border border-sage-200 transition">Broth</button>
+                    <button onclick="quickSearch('Susu')" class="text-xs bg-white hover:bg-sage-100 text-sage-700 px-3 py-1 rounded-full border border-sage-200 transition">Susu Kambing</button>
+                    <button onclick="quickSearch('Fillet')" class="text-xs bg-white hover:bg-sage-100 text-sage-700 px-3 py-1 rounded-full border border-sage-200 transition">Fillet</button>
+                    <button onclick="quickSearch('Seasalt')" class="text-xs bg-white hover:bg-sage-100 text-sage-700 px-3 py-1 rounded-full border border-sage-200 transition">Seasalt</button>
+                    <button onclick="quickSearch('Propolis')" class="text-xs bg-white hover:bg-sage-100 text-sage-700 px-3 py-1 rounded-full border border-sage-200 transition">Propolis</button>
+                </div>
+            </div>
+
+            <!-- Products Grid Container (Changed to 3 columns) -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Products will be generated dynamically by JS -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="hidden text-center py-16 space-y-4">
+                <div class="text-5xl text-slate-300">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                </div>
+                <h3 class="text-xl font-bold text-slate-700">Produk Tidak Ditemukan</h3>
+                <p class="text-slate-500 max-w-md mx-auto">Silakan coba kata kunci lain atau ubah filter kategori/brand yang Anda pilih.</p>
+                <button onclick="resetFilters()" class="px-4 py-2 bg-sage-600 hover:bg-sage-700 text-white rounded-lg transition text-sm">
+                    Reset Pencarian
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About and Testimonial Section -->
+    <section id="tentang" class="py-16 bg-sage-50 border-y border-sage-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-sm font-semibold text-accent-orange uppercase tracking-wider">MENGAPA MEMILIH KAMI</span>
+                    <h2 class="text-3xl font-extrabold text-sage-800">Menjaga Kesehatan Anda Melalui Nutrisi Murni & Terseleksi</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Di <strong>Mandaganics</strong>, kami memahami bahwa tubuh yang bugar berawal dari asupan yang alami dan bermutu tinggi. Oleh karena itu, kami bermitra secara ketat hanya dengan brand-brand terbaik di tanah air yang memprioritaskan kebersihan, tanpa pewarna sintetik, tanpa pengawet buatan, serta ramah bagi metabolisme tubuh Anda.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3">
+                            <div class="text-accent-orange text-lg mt-1"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sage-800">Kualitas Terjamin</h4>
+                                <p class="text-xs text-slate-500">Seluruh produk telah lolos uji kebersihan dan standar kesehatan.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="text-accent-orange text-lg mt-1"><i class="fa-solid fa-truck-fast"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sage-800">Pengiriman Cepat</h4>
+                                <p class="text-xs text-slate-500">Mendukung kurir instan, sameday, dan pengiriman Paxel berpendingin.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-md border border-sage-100">
+                    <h3 class="text-xl font-bold text-sage-800 mb-6">Pertanyaan Umum (FAQ)</h3>
+                    <div class="space-y-4">
+                        <div class="border-b border-sage-100 pb-3">
+                            <h4 class="font-semibold text-sage-700 mb-1">Bagaimana perhitungan ongkos kirim?</h4>
+                            <p class="text-xs text-slate-500">Pilihan kurir di web adalah estimasi sementara. Total ongkos kirim serta ketersediaan stok akan dihitung kembali dan dikonfirmasi langsung oleh admin setelah checkout.</p>
+                        </div>
+                        <div class="border-b border-sage-100 pb-3">
+                            <h4 class="font-semibold text-sage-700 mb-1">Bagaimana cara pembayaran?</h4>
+                            <p class="text-xs text-slate-500">Setelah pesan WhatsApp terkirim ke admin kami, admin akan memberikan detail invoice lengkap beserta nomor rekening pembayaran resmi toko kami.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sage-700 mb-1">Apakah produk segar (daging/ayam) aman dikirim?</h4>
+                            <p class="text-xs text-slate-500">Ya, produk segar sangat disarankan menggunakan jasa kirim Sameday/Instan atau kurir Paxel (Cold Chain) untuk menjaga kesegaran produk.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimoni" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl font-extrabold text-sage-800">Testimoni Sahabat Sehat</h2>
+                <div class="h-0.5 w-12 bg-accent-orange mx-auto my-3 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-sage-50 p-6 rounded-2xl border border-sage-100 relative">
+                    <i class="fa-solid fa-quote-left text-sage-200 text-3xl absolute top-4 left-4"></i>
+                    <p class="text-slate-600 text-sm italic relative z-10 pt-4">"Mencari Baby Broth dan Beef Tallow berkualitas kini jadi sangat mudah semenjak belanja di Mandaganics. Pengirimannya cepat dan CS-nya super ramah!"</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sage-200 flex items-center justify-center text-xs font-bold text-sage-700">IB</div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-sage-800">Ibu Budiarti</h4>
+                            <span class="text-[10px] text-slate-400">Pecinta Organik - Jakarta</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-sage-50 p-6 rounded-2xl border border-sage-100 relative">
+                    <i class="fa-solid fa-quote-left text-sage-200 text-3xl absolute top-4 left-4"></i>
+                    <p class="text-slate-600 text-sm italic relative z-10 pt-4">"Susu kambing kurma dan dori fillet di sini kualitasnya nomor satu. Cocok sekali untuk diet sehat anak-anak saya di rumah."</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sage-200 flex items-center justify-center text-xs font-bold text-sage-700">RH</div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-sage-800">Rendra H.</h4>
+                            <span class="text-[10px] text-slate-400">Pegiat Pola Hidup Sehat - Tangerang</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-sage-50 p-6 rounded-2xl border border-sage-100 relative">
+                    <i class="fa-solid fa-quote-left text-sage-200 text-3xl absolute top-4 left-4"></i>
+                    <p class="text-slate-600 text-sm italic relative z-10 pt-4">"Efi Propolis original harganya sangat bersaing. Proses check-out ke WhatsApp juga sangat efisien dan langsung direspons Admin."</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-sage-200 flex items-center justify-center text-xs font-bold text-sage-700">ID</div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-sage-800">Ita Dian</h4>
+                            <span class="text-[10px] text-slate-400">Ibu Rumah Tangga - Depok</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-sage-800 text-white pt-12 pb-6 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-sage-700">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-sage-800 text-lg font-bold">
+                        <i class="fa-solid fa-leaf text-sage-600"></i>
+                    </div>
+                    <div>
+                        <span class="block text-lg font-bold">Mandaganics</span>
+                        <span class="text-[10px] text-sage-200 uppercase tracking-wider">All Natural & Healthy</span>
+                    </div>
+                </div>
+                <p class="text-xs text-sage-200 leading-relaxed max-w-sm">
+                    Penyedia makanan organik, broth alami, kaldu murni, suplemen herbal propolis, susu kambing, dan sayuran serta produk protein hewani higienis untuk keluarga Indonesia.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm mb-4 tracking-wide text-accent-orange uppercase">Layanan Pelanggan</h4>
+                <ul class="space-y-2 text-xs text-sage-200">
+                    <li><i class="fa-solid fa-circle-chevron-right mr-1.5 text-[8px]"></i> Estimasi Pengiriman Tercepat</li>
+                    <li><i class="fa-solid fa-circle-chevron-right mr-1.5 text-[8px]"></i> Order Instan via WhatsApp</li>
+                    <li><i class="fa-solid fa-circle-chevron-right mr-1.5 text-[8px]"></i> Jaminan Produk Alami</li>
+                    <li><i class="fa-solid fa-circle-chevron-right mr-1.5 text-[8px]"></i> Konsultasi Admin Ramah</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm mb-4 tracking-wide text-accent-orange uppercase">Jam Operasional</h4>
+                <p class="text-xs text-sage-200 leading-relaxed mb-2">
+                    Setiap Hari: 08.00 - 17.00 WIB <br>
+                    Pesanan di luar jam kerja akan tetap direkap dan diproses keesokan harinya.
+                </p>
+                <div class="flex gap-3 text-lg pt-2">
+                    <a href="#" class="hover:text-accent-orange transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-accent-orange transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="hover:text-accent-orange transition"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-sage-300">
+            <span>&copy; 2026 Mandaganics - All Natural. Hak Cipta Dilindungi.</span>
+            <span class="mt-2 sm:mt-0">Dibuat dengan <i class="fa-solid fa-heart text-accent-orange"></i> demi Kesehatan Bangsa</span>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal / Slide-over Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none hidden" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 overflow-hidden">
+            <!-- Background overlay -->
+            <div id="cart-overlay" class="absolute inset-0 bg-slate-900 bg-opacity-50 transition-opacity duration-300 opacity-0 pointer-events-auto" onclick="toggleCartModal()"></div>
+
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                <div id="cart-panel" class="pointer-events-auto w-screen max-w-md transform translate-x-full transition-transform duration-300 ease-in-out bg-white flex flex-col shadow-2xl h-full">
+                    <!-- Drawer Header -->
+                    <div class="flex items-center justify-between p-6 border-b border-sage-100 bg-sage-50">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-cart-shopping text-sage-600 text-lg"></i>
+                            <h2 class="text-lg font-bold text-sage-800">Keranjang Belanja</h2>
+                        </div>
+                        <button onclick="toggleCartModal()" class="p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
+                            <i class="fa-solid fa-xmark text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Drawer Content (Scrollable) -->
+                    <div class="flex-1 overflow-y-auto p-6 space-y-6">
+                        <!-- Items List -->
+                        <div id="cart-items" class="space-y-4">
+                            <!-- Populated Dynamically via JS -->
+                        </div>
+
+                        <!-- Empty Cart State -->
+                        <div id="cart-empty-view" class="text-center py-12 space-y-3 hidden">
+                            <i class="fa-solid fa-basket-shopping text-slate-300 text-5xl"></i>
+                            <p class="text-slate-500 text-sm">Keranjang Anda masih kosong. Silakan pilih produk unggulan kami di katalog!</p>
+                            <button onclick="toggleCartModal()" class="px-4 py-2 bg-sage-600 text-white rounded-lg text-xs font-semibold hover:bg-sage-700 transition">
+                                Belanja Sekarang
+                            </button>
+                        </div>
+
+                        <!-- Checkout Form (Only visible when item is in cart) -->
+                        <div id="checkout-form-container" class="space-y-4 border-t border-sage-100 pt-6">
+                            <h3 class="font-bold text-sm text-sage-800 border-l-4 border-accent-orange pl-2">Informasi Pemesan</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Nama Lengkap *</label>
+                                    <input type="text" id="cust-name" required placeholder="Contoh: Ibu Rina Permata" 
+                                        class="w-full px-3.5 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Nomor Telepon/WA *</label>
+                                    <input type="tel" id="cust-phone" required placeholder="Contoh: 08123456789" 
+                                        class="w-full px-3.5 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sage-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Alamat Lengkap Pengiriman *</label>
+                                    <textarea id="cust-address" required rows="3" placeholder="Nama Jalan, RT/RW, Kecamatan, Kota, Kode Pos" 
+                                        class="w-full px-3.5 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sage-500 resize-none"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Pilih Ekspedisi / Kurir *</label>
+                                    <select id="cust-courier" onchange="updateTotalEstimation()"
+                                        class="w-full px-3.5 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white">
+                                        <option value="instan">Instan / Sameday (Estimasi Rp25.000 - Rp50.000)</option>
+                                        <option value="paxel">Paxel Cold Chain (Estimasi Rp30.000)</option>
+                                        <option value="reguler">Reguler JNE / J&T (Estimasi Rp10.000 - Rp20.000)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-600 mb-1">Pesan Tambahan (Opsional)</label>
+                                    <textarea id="cust-note" rows="2" placeholder="Catatan khusus, instruksi kurir, dll." 
+                                        class="w-full px-3.5 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-sage-500 resize-none"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Drawer Footer -->
+                    <div id="cart-footer-view" class="p-6 border-t border-sage-100 bg-sage-50 space-y-4">
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs text-slate-500">
+                                <span>Subtotal Produk</span>
+                                <span id="summary-subtotal" class="font-semibold">Rp0</span>
+                            </div>
+                            <div class="flex justify-between text-xs text-slate-500">
+                                <span>Estimasi Ongkos Kirim</span>
+                                <span id="summary-shipping" class="font-semibold">Rp0</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-sage-800 pt-2 border-t border-slate-200">
+                                <span class="font-bold">Estimasi Total Pembayaran</span>
+                                <span id="summary-total" class="font-extrabold text-accent-orange">Rp0</span>
+                            </div>
+                        </div>
+
+                        <!-- Important warning notice -->
+                        <div class="bg-amber-50 border border-amber-200 p-3 rounded-lg flex gap-2.5 items-start">
+                            <i class="fa-solid fa-circle-exclamation text-amber-500 text-sm mt-0.5"></i>
+                            <p class="text-[10px] text-amber-800 leading-normal">
+                                <strong>Penting:</strong> Total orderan akan dihitung dan dikonfirmasi kembali secara valid oleh Admin via WhatsApp setelah memeriksa berat barang, kemasan pengaman, dan tarif kurir real-time.
+                            </p>
+                        </div>
+
+                        <button onclick="checkoutToWhatsApp()" 
+                            class="w-full py-3.5 bg-gradient-to-r from-sage-600 to-sage-700 hover:from-sage-700 hover:to-sage-800 text-white font-bold rounded-xl shadow-lg shadow-sage-200 flex items-center justify-center gap-2 transition duration-200">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            Konfirmasi Order ke WA Admin
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal (Pop-up) -->
+    <div id="product-modal" class="fixed inset-0 z-[60] overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Overlay -->
+            <div id="product-modal-overlay" class="fixed inset-0 bg-slate-900 bg-opacity-50 transition-opacity opacity-0 duration-300 backdrop-blur-sm" aria-hidden="true" onclick="closeProductModal()"></div>
+            
+            <!-- Helper element to center the modal contents -->
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <!-- Modal Panel -->
+            <div id="product-modal-panel" class="inline-block align-bottom bg-white rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all duration-300 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full border border-sage-100">
+                <div class="absolute top-4 right-4 z-10">
+                    <button onclick="closeProductModal()" class="w-10 h-10 flex items-center justify-center bg-white/80 backdrop-blur-md text-slate-600 hover:text-slate-900 hover:bg-white rounded-full shadow-md transition duration-200">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col md:flex-row h-full">
+                    <!-- Product Image -->
+                    <div class="md:w-1/2 relative bg-sage-50 h-64 md:h-auto min-h-[300px]">
+                        <img id="modal-img" src="" alt="" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <!-- Product Content -->
+                    <div class="md:w-1/2 p-6 md:p-10 flex flex-col justify-center bg-white">
+                        <span id="modal-brand" class="inline-block px-3 py-1 bg-sage-100 text-sage-800 text-xs font-bold rounded-full mb-4 w-max uppercase tracking-wider"></span>
+                        <h3 id="modal-title" class="text-3xl font-extrabold text-sage-800 mb-2 leading-tight"></h3>
+                        <div class="w-12 h-1 bg-accent-orange rounded-full mb-4"></div>
+                        
+                        <div class="flex items-center gap-4 mb-6">
+                            <p id="modal-price" class="text-2xl font-black text-slate-800"></p>
+                            <div id="modal-stock" class="text-sm font-semibold"></div>
+                        </div>
+                        
+                        <div class="space-y-3 mb-8 text-sm text-slate-600 font-medium">
+                            <p class="flex items-center gap-3"><i class="fa-solid fa-leaf text-sage-500 w-5"></i> 100% Kualitas Organik & Alami</p>
+                            <p class="flex items-center gap-3"><i class="fa-solid fa-shield-halved text-sage-500 w-5"></i> Tanpa Pengawet & Pewarna Buatan</p>
+                            <p class="flex items-center gap-3"><i class="fa-solid fa-box-open text-sage-500 w-5"></i> Kemasan Aman & Higienis</p>
+                        </div>
+                        
+                        <button id="modal-add-btn" class="w-full py-4 bg-accent-orange hover:bg-accent-orangeHover text-white font-bold rounded-xl shadow-lg hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-2 text-lg">
+                            <i class="fa-solid fa-cart-shopping"></i> Tambah ke Keranjang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification (Custom alert replacements) -->
+    <div id="toast-notif" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-800 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-2.5 opacity-0 pointer-events-none transition-all duration-300 transform translate-y-2">
+        <span id="toast-icon" class="text-accent-orange"><i class="fa-solid fa-circle-check"></i></span>
+        <span id="toast-message" class="text-xs font-semibold">Produk ditambahkan ke keranjang!</span>
+    </div>
+
+    <!-- JavaScript Application Core Logic -->
+    <script>
+        // Database Produk (Sesuai dengan 8 Poin Katalog yang diberikan)
+        // Gambar menggunakan placeholder unplash dengan query yang tepat & estetik, dengan fallback error handling
+        const rawProducts = [
+            // 1. Brothmama
+            { id: 101, brand: 'Brothmama', name: 'Ndf Honey', price: 175000, stock: 12, img: 'ndf-honey1.jpg' },
+            { id: 102, brand: 'Brothmama', name: 'Ndf Histago', price: 175000, stock: 8, img: 'ndf-histago1.jpg' },
+            { id: 103, brand: 'Brothmama', name: 'Chicken Broth Ori', price: 89000, stock: 4, img: 'Chicken-broth-BM.jpg' }, // Stok kosong
+            { id: 104, brand: 'Brothmama', name: 'Beef Broth', price: 110000, stock: 6, img: 'Beef-Broth-BM.jpg' },
+            { id: 105, brand: 'Brothmama', name: 'Baby Broth', price: 85000, stock: 6, img: 'Baby-Broth-BM.jpg' },
+            { id: 106, brand: 'Brothmama', name: 'Mild Broth', price: 80000, stock: 5, img: 'Mild-Broth-BM.jpg' },
+            { id: 107, brand: 'Brothmama', name: 'Gabus Broth', price: 110000, stock: 7, img: 'gabus-broth-BM.jpg' },
+            { id: 108, brand: 'Brothmama', name: 'Beef Liver Pate', price: 112000, stock: 4, img: 'beef-liver-BM.jpg' },
+            { id: 109, brand: 'Brothmama', name: 'Beef Liver Powder', price: 118000, stock: 4, img: 'liver-powder-BM.jpg' },
+            { id: 110, brand: 'Brothmama', name: 'Beef Tallow', price: 95000, stock: 3, img: 'Tallow-BM.jpg' },
+            { id: 111, brand: 'Brothmama', name: 'Chicken Oil', price: 85000, stock: 2, img: 'Chicken-oil-BM.jpg' },
+            { id: 112, brand: 'Brothmama', name: 'Duck Fat', price: 105000, stock: 4, img: 'Duck-fat-BM.jpg' },
+            { id: 113, brand: 'Brothmama', name: 'Duck Stock', price: 92000, stock: 6, img: 'Duck-stock-BM.jpg' },
+            { id: 114, brand: 'Brothmama', name: 'Duck Liver Pate', price: 118000, stock: 5, img: 'Duck-liver-BM.jpg' },
+            { id: 115, brand: 'Brothmama', name: 'C&F Shot', price: 56000, stock: 7, img: 'CnF-shot.jpg' },
+            { id: 116, brand: 'Brothmama', name: 'Otak Bumbu Kuning', price: 95000, stock: 2, img: 'otak-bumbu-BM.jpg' }, // Stok Kosong
+            { id: 117, brand: 'Brothmama', name: 'Duck Patty', price: 120000, stock: 2, img: 'duck-skin-BM.jpg' },
+            { id: 118, brand: 'Brothmama', name: 'Chicken Skin Patty', price: 110000, stock: 1, img: 'chicken-skin-BM.jpg' },
+            { id: 119, brand: 'Brothmama', name: 'Lidah Empal', price: 135000, stock: 3, img: 'lidah-empal-BM.jpg' },
+
+            // 2. Efi Propolis
+            { id: 201, brand: 'Efi Propolis', name: 'Efi Propolis 10ml', price: 150000, stock: 8, img: 'efi-propolis2.jpg' },
+            { id: 202, brand: 'Efi Propolis', name: 'Efi Propolis 30ml', price: 400000, stock: 6, img: 'efi-propolis1.jpg' }, // Stok kosong
+
+            // 3. Pure Organik
+            { id: 301, brand: 'Pure Organik', name: 'Fillet Gabus 1kg', price: 115000, stock: 5, img: 'Fillet-gabus-po.jpg' },
+            { id: 302, brand: 'Pure Organik', name: 'Fillet Gabus 500gr', price: 85000, stock: 5, img: 'ikan-gabus-PO2.jpg' },
+            { id: 303, brand: 'Pure Organik', name: 'Terinasi 250gr', price: 65000, stock: 2, img: 'terinasi-PO1.jpg' },
+            { id: 304, brand: 'Pure Organik', name: 'Terinasi 500gr', price: 80000, stock: 3, img: 'terinasi-PO1.jpg' },
+            { id: 305, brand: 'Pure Organik', name: 'Fillet Dori', price: 75000, stock: 4, img: 'fillet-dori-PO1.jpg' }, // Stok kosong
+            { id: 306, brand: 'Pure Organik', name: 'Gabus Potong 1kg', price: 110000, stock: 6, img: 'gabuspotong-PO.jpg' },
+            { id: 307, brand: 'Pure Organik', name: 'Susu Kambing Ori 250ml', price: 28000, stock: 5, img: 'sukam250ml-PO.jpg' },
+            { id: 308, brand: 'Pure Organik', name: 'Susu Kambing Coklat', price: 30000, stock: 8, img: 'sukamcoklat-PO.jpg' },
+            { id: 309, brand: 'Pure Organik', name: 'Susu Kambing Kurma', price: 30000, stock: 8, img: 'sukamkurma-PO.jpg' },
+            { id: 310, brand: 'Pure Organik', name: 'Susu Kambing Ori 1L', price: 95000, stock: 2, img: 'sukam1L-PO.jpg' },
+
+            // 4. Nima Bali
+            { id: 401, brand: 'Nima Bali', name: 'Tejakula Nima', price: 65000, stock: 5, img: 'tejakula-nima.jpg' },
+            { id: 402, brand: 'Nima Bali', name: 'Kusamba Nima', price: 65000, stock: 5, img: 'kusamba-nima.jpg' },
+            { id: 403, brand: 'Nima Bali', name: 'VCO Nima', price: 80000, stock: 2, img: 'vco-nima.jpg' },
+            { id: 404, brand: 'Nima Bali', name: 'Epsom Salt Nima', price: 75000, stock: 4, img: 'epsom-nima.jpg' },
+            { id: 405, brand: 'Nima Bali', name: 'Raw Cacao Powder', price: 85000, stock: 1, img: 'raw-cacao-nima1.jpg' },
+
+            // 5. Nucifera
+            { id: 501, brand: 'Nucifera', name: 'Kecap Manis Nucifera', price: 35000, stock: 7, img: 'kecapmanis-nucifera.jpg' },
+            { id: 502, brand: 'Nucifera', name: 'Kecap Asin Nucifera', price: 33000, stock: 5, img: 'kecapasin-nucifera.jpg' },
+            { id: 503, brand: 'Nucifera', name: 'CCO Oil 1L', price: 145000, stock: 6, img: 'cco-nucifera.jpg' }, // Stok kosong
+            { id: 504, brand: 'Nucifera', name: 'Coconut Milk Powder', price: 50000, stock: 12, img: 'milkpowder-nucifera.jpg' },
+            { id: 505, brand: 'Nucifera', name: 'Coconut White Sugar', price: 45000, stock: 8, img: 'whitesugar-nucifera.jpg' },
+            { id: 506, brand: 'Nucifera', name: 'Seasalt Halus Nucifera', price: 25000, stock: 5, img: 'Seasalt-halus-nucifera.jpg' },
+            { id: 507, brand: 'Nucifera', name: 'Seasalt Kasar Nucifera', price: 23000, stock: 5, img: 'seasaltkasar-nucifera.jpg' },
+
+            // 6. Gut Well Soon
+            { id: 601, brand: 'Gut Well Soon', name: 'Beef Tallow', price: 89000, stock: 10, img: 'tallow-gws.jpg' },
+            { id: 602, brand: 'Gut Well Soon', name: 'Schmaltz', price: 115000, stock: 10, img: 'Schmaltz-gws.jpg' },
+            { id: 603, brand: 'Gut Well Soon', name: 'Seasalt GWS', price: 28000, stock: 6, img: 'seasaltgws.jpg' },
+
+            // 7. Bio TH
+            { id: 701, brand: 'Bio TH', name: 'Madusu 500ml', price: 145000, stock: 5, img: 'madusu500.jpg' },
+            { id: 702, brand: 'Bio TH', name: 'Madusu 100ml', price: 50000, stock: 3, img: 'madusu100.jpg' },
+            { id: 703, brand: 'Bio TH', name: 'Neolac', price: 185000, stock: 8, img: 'neolac.jpg' },
+            { id: 704, brand: 'Bio TH', name: 'Starkid 100ml', price: 85000, stock: 4, img: 'starkids.jpg' },
+            { id: 705, brand: 'Bio TH', name: 'Starkid 50ml', price: 50000, stock: 3, img: 'starkids.jpg' },
+            { id: 706, brand: 'Bio TH', name: 'Tetes Salama', price: 40000, stock: 4, img: 'Tetes-salama.jpg' },
+            { id: 707, brand: 'Bio TH', name: 'Lumbric', price: 120000, stock: 8, img: 'Lumbric.jpg' },
+            { id: 708, brand: 'Bio TH', name: 'MADU PRO Lemon', price: 95000, stock: 2, img: 'mpl100.jpg' },
+            { id: 709, brand: 'Bio TH', name: 'Majakani 330ml', price: 110000, stock: 4, img: 'majakani.jpg' },
+            { id: 710, brand: 'Bio TH', name: 'Majakani 100ml', price: 45000, stock: 4, img: 'majakani.jpg' },
+            { id: 711, brand: 'Bio TH', name: 'Skin Pro', price: 95000, stock: 1, img: 'skinpro.jpg' },
+            { id: 712, brand: 'Bio TH', name: 'Proca Sachet', price: 75000, stock: 6, img: 'procasachet.jpg' }, // Stok kosong
+            { id: 713, brand: 'Bio TH', name: 'ProcaBoost', price: 140000, stock: 1, img: 'procaboost.jpg' },
+            { id: 714, brand: 'Bio TH', name: 'BIO Premio', price: 210000, stock: 5, img: 'biopremio.jpg' },
+            { id: 715, brand: 'Bio TH', name: 'BIO Daily', price: 125000, stock: 0, img: 'biodaily.jpg' },
+            { id: 716, brand: 'Bio TH', name: 'Hafidz', price: 95000, stock: 2, img: 'hafidz.jpg' },
+
+            // 8. Healti Ciken
+            { id: 801, brand: 'Healti Ciken', name: 'Ayam Potong 10', price: 65000, stock: 2, img: 'HC-potong-10.jpg' },
+            { id: 802, brand: 'Healti Ciken', name: 'Fillet Paha Skin 1kg', price: 85000, stock: 2, img: 'HC-fillet-paha1.jpg' },
+            { id: 803, brand: 'Healti Ciken', name: 'Fillet Paha SKL 1kg', price: 90000, stock: 2, img: 'HC-fillet-paha2.jpg' },
+            { id: 804, brand: 'Healti Ciken', name: 'Fillet Dada Ayam 1kg', price: 95000, stock: 2, img: 'HC-fillet-dada1.jpg' },
+            { id: 805, brand: 'Healti Ciken', name: 'Ayam Paha Bawah', price: 55000, stock: 3, img: 'pahabawah-HC.jpg' },
+            { id: 806, brand: 'Healti Ciken', name: 'Kulit Ayam', price: 45000, stock: 2, img: 'kulitayam-HC.jpg' },
+            { id: 807, brand: 'Healti Ciken', name: 'Sayap Ayam', price: 50000, stock: 2, img: 'sayap-HC.jpg' }
+        ];
+
+        // Global State
+        let cart = [];
+        let searchQuery = "";
+        let selectedBrand = "all";
+
+        // Helper function: Format IDR rupiah
+        function formatIDR(amount) {
+            return new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(amount);
+        }
+
+        // Initialize & render cards
+        window.onload = function() {
+            renderProducts();
+            updateCartUI();
+        };
+
+        // Render products based on searches and filters
+        function renderProducts() {
+            const grid = document.getElementById('product-grid');
+            const emptyState = document.getElementById('empty-state');
+            grid.innerHTML = "";
+
+            const filtered = rawProducts.filter(product => {
+                const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
+                const matchesBrand = (selectedBrand === 'all' || product.brand === selectedBrand);
+                return matchesSearch && matchesBrand;
+            });
+
+            if (filtered.length === 0) {
+                grid.classList.add('hidden');
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            grid.classList.remove('hidden');
+            emptyState.classList.add('hidden');
+
+            filtered.forEach(p => {
+                const isItemInCart = cart.find(item => item.id === p.id);
+                const quantityInCart = isItemInCart ? isItemInCart.quantity : 0;
+
+                const cardHtml = `
+                    <div class="bg-white border border-sage-100 rounded-2xl overflow-hidden hover:shadow-2xl hover:border-sage-200 transition-all duration-300 flex flex-col group h-full cursor-pointer" onclick="openProductModal(${p.id})">
+                        <div class="relative bg-slate-50 aspect-[4/3] sm:aspect-square overflow-hidden">
+                            <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                                 onerror="this.src='https://placehold.co/300x300/7fa98c/ffffff?text=${encodeURIComponent(p.name)}'">
+                            <span class="absolute top-3 left-3 text-[10px] bg-sage-600/90 backdrop-blur-sm text-white font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                                ${p.brand}
+                            </span>
+                        </div>
+                        <div class="p-5 flex flex-col flex-grow justify-between">
+                            <div class="space-y-1">
+                                <h3 class="font-bold text-sage-800 text-lg group-hover:text-accent-orange transition duration-200 line-clamp-2 h-14">
+                                    ${p.name}
+                                </h3>
+                                <div class="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+                                    <i class="fa-solid fa-tags text-sage-400"></i> ${p.brand}
+                                </div>
+                                <div class="text-xs font-semibold mt-1 ${p.stock > 0 ? 'text-sage-600' : 'text-red-500'}">
+                                    ${p.stock > 0 ? `<i class="fa-solid fa-box text-sage-400 w-4"></i> Sisa stok: ${p.stock}` : `<i class="fa-solid fa-box-open text-red-400 w-4"></i> Stock sedang kosong`}
+                                </div>
+                            </div>
+                            <div class="pt-5 mt-2 flex items-center justify-between border-t border-slate-50">
+                                <span class="font-extrabold text-slate-900 text-lg">${formatIDR(p.price)}</span>
+                                <button onclick="event.stopPropagation(); addToCart(${p.id})" 
+                                        class="p-2.5 rounded-xl transition duration-200 flex items-center justify-center gap-2 text-xs font-bold border shadow-sm ${p.stock > 0 ? 'bg-sage-50 hover:bg-sage-600 hover:text-white text-sage-600 border-sage-100 hover:border-sage-600' : 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed'}"
+                                        ${p.stock === 0 ? 'disabled' : ''}>
+                                    <i class="fa-solid fa-plus"></i> Tambah
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+
+        // Product Modal Logic
+        function openProductModal(productId) {
+            const product = rawProducts.find(p => p.id === productId);
+            if (!product) return;
+            
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = product.img;
+            modalImg.onerror = function() {
+                this.src = `https://placehold.co/600x600/7fa98c/ffffff?text=${encodeURIComponent(product.name)}`;
+            };
+            
+            document.getElementById('modal-brand').innerText = product.brand;
+            document.getElementById('modal-title').innerText = product.name;
+            document.getElementById('modal-price').innerText = formatIDR(product.price);
+            
+            const stockEl = document.getElementById('modal-stock');
+            const addBtn = document.getElementById('modal-add-btn');
+            
+            // Logic state modal based on stock
+            if (product.stock > 0) {
+                stockEl.innerHTML = `<span class="text-sage-700 bg-sage-100 px-3 py-1 rounded-lg"><i class="fa-solid fa-box mr-1"></i> Tersedia: ${product.stock}</span>`;
+                addBtn.disabled = false;
+                addBtn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-slate-400', 'hover:bg-slate-400', 'hover:-translate-y-1');
+                addBtn.classList.add('bg-accent-orange', 'hover:bg-accent-orangeHover', 'hover:-translate-y-1');
+                addBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i> Tambah ke Keranjang`;
+                addBtn.onclick = function() {
+                    addToCart(product.id);
+                    closeProductModal();
+                };
+            } else {
+                stockEl.innerHTML = `<span class="text-red-600 bg-red-100 px-3 py-1 rounded-lg"><i class="fa-solid fa-box-open mr-1"></i> Stock sedang kosong</span>`;
+                addBtn.disabled = true;
+                addBtn.classList.remove('bg-accent-orange', 'hover:bg-accent-orangeHover', 'hover:-translate-y-1');
+                addBtn.classList.add('bg-slate-400', 'cursor-not-allowed', 'opacity-80');
+                addBtn.innerHTML = `<i class="fa-solid fa-ban"></i> Habis`;
+                addBtn.onclick = null;
+            }
+            
+            const modal = document.getElementById('product-modal');
+            const overlay = document.getElementById('product-modal-overlay');
+            const panel = document.getElementById('product-modal-panel');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+                panel.classList.remove('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+            }, 10);
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('product-modal');
+            const overlay = document.getElementById('product-modal-overlay');
+            const panel = document.getElementById('product-modal-panel');
+            
+            overlay.classList.add('opacity-0');
+            panel.classList.add('opacity-0', 'translate-y-4', 'sm:translate-y-0', 'sm:scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        // Synchronization logic for searching
+        function syncAndSearch(value) {
+            searchQuery = value;
+            document.getElementById('catalog-search').value = value;
+            document.getElementById('nav-search').value = value;
+            renderProducts();
+        }
+
+        // Quick search from suggestion badges
+        function quickSearch(value) {
+            syncAndSearch(value);
+            // Auto scroll down to catalog if at top
+            document.getElementById('katalog').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Dropdown brand filtration
+        function filterProducts() {
+            selectedBrand = document.getElementById('brand-filter').value;
+            renderProducts();
+        }
+
+        // Reset search states
+        function resetFilters() {
+            searchQuery = "";
+            selectedBrand = "all";
+            document.getElementById('catalog-search').value = "";
+            document.getElementById('nav-search').value = "";
+            document.getElementById('brand-filter').value = "all";
+            renderProducts();
+        }
+
+        // Toggle the cart side drawer
+        function toggleCartModal() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            const panel = document.getElementById('cart-panel');
+
+            if (drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+                // Allow CSS transition to fire
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    panel.classList.remove('translate-x-full');
+                }, 10);
+            } else {
+                overlay.classList.add('opacity-0');
+                panel.classList.add('translate-x-full');
+                // Hide container once CSS transition ends
+                setTimeout(() => {
+                    drawer.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Add to cart operations
+        function addToCart(productId) {
+            const product = rawProducts.find(p => p.id === productId);
+            if (!product) return;
+
+            // Security check against empty stock
+            if (product.stock === 0) {
+                showToast(`Maaf, "${product.name}" sedang kosong!`, true);
+                return;
+            }
+
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                // Prevent adding beyond available stock
+                if (existingItem.quantity >= product.stock) {
+                    showToast(`Maksimal stok "${product.name}" yang bisa dibeli adalah ${product.stock}!`, true);
+                    return;
+                }
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            renderProducts();
+            showToast(`"${product.name}" ditambahkan ke keranjang!`);
+        }
+
+        // Change quantity (add or minus) inside cart
+        function changeQty(productId, amount) {
+            const existingItem = cart.find(item => item.id === productId);
+            if (!existingItem) return;
+
+            const product = rawProducts.find(p => p.id === productId);
+            const newQty = existingItem.quantity + amount;
+
+            // Check limit
+            if (newQty > product.stock) {
+                showToast(`Maksimal stok "${product.name}" adalah ${product.stock}!`, true);
+                return;
+            }
+
+            existingItem.quantity = newQty;
+            if (existingItem.quantity <= 0) {
+                cart = cart.filter(item => item.id !== productId);
+            }
+
+            updateCartUI();
+            renderProducts();
+        }
+
+        // Calculate costs and update Cart GUI elements
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyView = document.getElementById('cart-empty-view');
+            const checkoutForm = document.getElementById('checkout-form-container');
+            const footerView = document.getElementById('cart-footer-view');
+            const badge = document.getElementById('cart-badge');
+
+            // Total counter badge
+            const totalQty = cart.reduce((acc, item) => acc + item.quantity, 0);
+            if (totalQty > 0) {
+                badge.innerText = totalQty;
+                badge.classList.remove('scale-0');
+            } else {
+                badge.classList.add('scale-0');
+            }
+
+            // If empty
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "";
+                emptyView.classList.remove('hidden');
+                checkoutForm.classList.add('hidden');
+                footerView.classList.add('hidden');
+                return;
+            }
+
+            emptyView.classList.add('hidden');
+            checkoutForm.classList.remove('hidden');
+            footerView.classList.remove('hidden');
+
+            cartItemsContainer.innerHTML = "";
+            cart.forEach(item => {
+                const itemHtml = `
+                    <div class="flex items-center gap-3 bg-sage-50/50 p-3 rounded-xl border border-sage-100/60">
+                        <img src="${item.img}" alt="${item.name}" class="w-12 h-12 rounded-lg object-cover bg-white" 
+                             onerror="this.src='https://placehold.co/100x100/7fa98c/ffffff?text=${encodeURIComponent(item.name)}'">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-xs text-sage-800 truncate">${item.name}</h4>
+                            <span class="text-[10px] text-slate-400 block">${item.brand}</span>
+                            <span class="text-xs text-slate-800 font-semibold block mt-0.5">${formatIDR(item.price)}</span>
+                        </div>
+                        <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-lg p-1">
+                            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 flex items-center justify-center text-xs text-slate-500 hover:text-accent-orange transition">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            <span class="text-xs font-bold w-4 text-center text-slate-800">${item.quantity}</span>
+                            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 flex items-center justify-center text-xs text-slate-500 hover:text-accent-orange transition">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+            });
+
+            updateTotalEstimation();
+        }
+
+        // Calculate checkout estimations (Items + shipping estimates)
+        function updateTotalEstimation() {
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+            
+            // Get shipping option estimation
+            const courier = document.getElementById('cust-courier').value;
+            let estShipping = 0;
+            if (courier === 'instan') {
+                estShipping = 35000; // Median
+            } else if (courier === 'paxel') {
+                estShipping = 30000;
+            } else if (courier === 'reguler') {
+                estShipping = 15000;
+            }
+
+            const total = subtotal + estShipping;
+
+            document.getElementById('summary-subtotal').innerText = formatIDR(subtotal);
+            document.getElementById('summary-shipping').innerText = formatIDR(estShipping) + " (Estimasi)";
+            document.getElementById('summary-total').innerText = formatIDR(total);
+        }
+
+        // Custom Toast system
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast-notif');
+            const icon = document.getElementById('toast-icon');
+            const msg = document.getElementById('toast-message');
+
+            msg.innerText = message;
+            if (isError) {
+                icon.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-red-500"></i>`;
+            } else {
+                icon.innerHTML = `<i class="fa-solid fa-circle-check text-accent-orange"></i>`;
+            }
+
+            toast.classList.remove('opacity-0', 'translate-y-2', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-2', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Submit details and direct to WhatsApp link
+        function checkoutToWhatsApp() {
+            const name = document.getElementById('cust-name').value.trim();
+            const phone = document.getElementById('cust-phone').value.trim();
+            const address = document.getElementById('cust-address').value.trim();
+            const note = document.getElementById('cust-note').value.trim();
+            const courierVal = document.getElementById('cust-courier').value;
+
+            // Simple validation
+            if (!name || !phone || !address) {
+                showToast("Harap isi Nama, Nomor WA, dan Alamat Anda!", true);
+                return;
+            }
+
+            // Courier name map
+            const courierNames = {
+                'instan': 'Instan / Sameday (Estimasi Rp25.000 - Rp50.000)',
+                'paxel': 'Paxel Cold Chain (Estimasi Rp30.000)',
+                'reguler': 'Reguler JNE / J&T (Estimasi Rp10.000 - Rp20.000)'
+            };
+
+            // Build WhatsApp order list
+            let totalProductCost = 0;
+            let listText = "";
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                totalProductCost += itemTotal;
+                listText += `${index + 1}. *${item.name}* (Brand: ${item.brand})\n   » ${item.quantity} x ${formatIDR(item.price)} = *${formatIDR(itemTotal)}*\n`;
+            });
+
+            const courierText = courierNames[courierVal];
+            const finalNote = note ? note : "-";
+
+            // Format WhatsApp Message Body
+            const waMessage = 
+`*NEW ORDER - MANDAGANICS* 🌿🍊
+---------------------------------------
+Halo Admin Mandaganics, saya ingin melakukan pemesanan produk sehat berikut:
+
+*DAFTAR PRODUK:*
+${listText}
+*Subtotal Produk:* ${formatIDR(totalProductCost)}
+*Pilihan Kurir:* ${courierText}
+
+---------------------------------------
+*DATA PENERIMA:*
+👤 *Nama:* ${name}
+📞 *No. WA:* ${phone}
+📍 *Alamat:* ${address}
+📝 *Catatan Tambahan:* ${finalNote}
+
+---------------------------------------
+⚠️ *Catatan Pembeli:*
+_"Total orderan akan dihitung setelah konfirmasi Admin via WA."_
+---------------------------------------
+Mohon dikonfirmasi ketersediaan stok, total biaya real, serta nomor rekening pembayarannya. Terima kasih!`;
+
+            // Admin target WhatsApp (Using Indonesian format 62)
+            const adminWA = "6281234567890"; // Ganti dengan nomor WA Toko yang sebenarnya
+            const encodedMessage = encodeURIComponent(waMessage);
+            const waURL = `https://api.whatsapp.com/send?phone=${adminWA}&text=${encodedMessage}`;
+
+            // Open in new tab
+            window.open(waURL, '_blank');
+        }
+    </script>
+</body>
+</html>
